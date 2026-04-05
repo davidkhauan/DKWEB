@@ -2,7 +2,8 @@ const images = {
     galeriaMosaico: "./assets/galeriaMosaico.png",
     advocaciaGeral: "./assets/advogadoGeral.png",
     helenaBeleza: "./assets/helenaBeleza.png",
-    linkBio: "./assets/linkBio.png"
+    linkBio: "./assets/linkBio.png",
+    geradorDeSenhas: "./assets/geradorSenha.png"
 }
 
 const Projects = [
@@ -44,12 +45,12 @@ const Projects = [
     },
     {
         id: 5,
-        title: "Em Desenvolvimento...",
-        description: "Novo projeto em construção. Fique atento, em breve estará disponível para visualização!",
-        image: "",
-        tags: ["Projeto #5"],
-        link: "#",
-        isComingSoon: true
+        title: "Gerador de Senhas",
+        description: "Gerador de senhas simples e funcional.",
+        image: images.geradorDeSenhas,
+        tags: [],
+        link: "https://davidkhauan.github.io/geradorSenha/",
+        isComingSoon: false
     },
     {
         id: 6,
