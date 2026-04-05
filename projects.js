@@ -1,5 +1,6 @@
 const images = {
-    galeriaMosaico: "./assets/galeriaMosaico.png"
+    galeriaMosaico: "./assets/galeriaMosaico.png",
+    advocaciaGeral: "./assets/advogadoGeral.png"
 }
 
 const Projects = [
@@ -14,12 +15,12 @@ const Projects = [
     },
     {
         id: 2,
-        title: "Em Desenvolvimento...",
-        description: "Novo projeto em construção. Fique atento, em breve estará disponível para visualização!",
-        image: "",
-        tags: ["Projeto #2"],
-        link: "#",
-        isComingSoon: true
+        title: "Advocacia Geral",
+        description: "Advocacia Geral focado em landing page responsivo e profissional.",
+        image: images.advocaciaGeral,
+        tags: [],
+        link: "https://davidkhauan.github.io/advogado/",
+        isComingSoon: false
     },
     {
         id: 3,
