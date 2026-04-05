@@ -1,7 +1,8 @@
 const images = {
     galeriaMosaico: "./assets/galeriaMosaico.png",
     advocaciaGeral: "./assets/advogadoGeral.png",
-    helenaBeleza: "./assets/helenaBeleza.png"
+    helenaBeleza: "./assets/helenaBeleza.png",
+    linkBio: "./assets/linkBio.png"
 }
 
 const Projects = [
@@ -34,12 +35,12 @@ const Projects = [
     },
     {
         id: 4,
-        title: "Em Desenvolvimento...",
-        description: "Novo projeto em construção. Fique atento, em breve estará disponível para visualização!",
-        image: "",
-        tags: ["Projeto #4"],
-        link: "#",
-        isComingSoon: true
+        title: "Link Bio",
+        description: "Link Bio simples e funcional.",
+        image: images.linkBio,
+        tags: [],
+        link: "https://davidkhauan.github.io/linkbio/",
+        isComingSoon: false
     },
     {
         id: 5,
