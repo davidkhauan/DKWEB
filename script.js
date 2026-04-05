@@ -4,6 +4,7 @@ document.addEventListener ('DOMContentLoaded', () => {
     initNavigation()
     initTypingEffect()
     initCounterAnimation()
+    initProjectsRender()
     initScrollReveal()
     initProjectFilter()
     initContactForm()
@@ -290,6 +291,93 @@ function initScrollReveal() {
     })
 
     revealElements.forEach (el => observer.observe (el))
+}
+
+function initProjectsRender() {
+    const projectsGrid = document.querySelector('.projects-grid');
+    if (!projectsGrid || typeof Projects === 'undefined') return;
+    
+    projectsGrid.innerHTML = '';
+    
+    Projects.forEach(project => {
+        const isComingSoon = project.isComingSoon;
+        
+        let tagsHtml = '';
+        if (project.tags && project.tags.length > 0) {
+            tagsHtml = `<div class="project-tags">
+                ${project.tags.map(tag => `<span class="tag tag-soon">${tag}</span>`).join('')}
+            </div>`;
+        }
+        
+        let imageHtml = '';
+        if (project.image) {
+            imageHtml = `<img src="${project.image}" alt="${project.title}">`;
+        } else if (isComingSoon) {
+            let svgIcon = `
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <polyline points="16 18 22 12 16 6"/>
+                    <polyline points="8 6 2 12 8 18"/>
+                </svg>
+            `;
+            if (project.id % 2 !== 0 && project.id > 1) {
+                svgIcon = `
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polygon points="10 8 16 12 10 16 10 8"/>
+                </svg>
+                `;
+            }
+            
+            imageHtml = `
+                <div class="coming-soon-placeholder">
+                    ${svgIcon}
+                    <div class="coming-soon-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            `;
+        } else {
+            imageHtml = `<img src="" alt="">`;
+        }
+    
+        const comingSoonCardClass = isComingSoon ? 'coming-soon-card' : 'coming-soon-card';
+        const hasLink = !isComingSoon && project.link && project.link.trim() !== '' && project.link !== '#';
+        const WrapperTag = hasLink ? 'a' : 'article';
+        const linkAttrs = hasLink ? `href="${project.link}" target="_blank" rel="noopener noreferrer"` : '';
+        
+        const cardHtml = `
+            <${WrapperTag} ${linkAttrs} class="project-card ${comingSoonCardClass}" id="project-${project.id}" data-category="all" style="display: block;">
+                ${isComingSoon ? `
+                <div class="coming-soon-banner">
+                    <span>EM BREVE</span>
+                </div>
+                ` : ''}
+                <div class="project-image">
+                    ${imageHtml}
+                    ${hasLink ? `
+                    <div class="project-overlay">
+                        <div class="project-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    ` : ''}
+                </div>
+                <div class="project-info">
+                    ${tagsHtml}
+                    <h3 class="project-title ${isComingSoon ? 'coming-soon-title' : 'coming-soon-title'}">${project.title}</h3>
+                    <p class="project-description">
+                        ${project.description}
+                    </p>
+                </div>
+            </${WrapperTag}>
+        `;
+        
+        projectsGrid.insertAdjacentHTML('beforeend', cardHtml);
+    });
 }
 
 function initProjectFilter() {
