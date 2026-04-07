@@ -3,7 +3,8 @@ const images = {
     advocaciaGeral: "./assets/advogadoGeral.png",
     helenaBeleza: "./assets/helenaBeleza.png",
     linkBio: "./assets/linkBio.png",
-    geradorDeSenhas: "./assets/geradorSenha.png"
+    geradorDeSenhas: "./assets/geradorSenha.png",
+    barberShop: "./assets/barberShop.png"
 }
 
 const Projects = [
@@ -54,12 +55,12 @@ const Projects = [
     },
     {
         id: 6,
-        title: "Em Desenvolvimento...",
-        description: "Novo projeto em construção. Fique atento, em breve estará disponível para visualização!",
-        image: "",
-        tags: ["Projeto #6"],
-        link: "#",
-        isComingSoon: true
+        title: "Barber Shop",
+        description: "Barber Shop focado em responsividade e design moderno.",
+        image: images.barberShop,
+        tags: [],
+        link: "https://davidkhauan.github.io/barberShop/",
+        isComingSoon: false
     },
     {
         id: 7,
