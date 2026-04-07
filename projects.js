@@ -4,7 +4,8 @@ const images = {
     helenaBeleza: "./assets/helenaBeleza.png",
     linkBio: "./assets/linkBio.png",
     geradorDeSenhas: "./assets/geradorSenha.png",
-    barberShop: "./assets/barberShop.png"
+    barberShop: "./assets/barberShop.png",
+    cardapioBurger: "./assets/cardapioBurger.png"
 }
 
 const Projects = [
@@ -64,12 +65,12 @@ const Projects = [
     },
     {
         id: 7,
-        title: "Em Desenvolvimento...",
-        description: "Novo projeto em construção. Fique atento, em breve estará disponível para visualização!",
-        image: "",
-        tags: ["Projeto #7"],
-        link: "#",
-        isComingSoon: true
+        title: "Cardapio Burger",
+        description: "Cardapio Burger focado em responsividade e design moderno.",
+        image: images.cardapioBurger,
+        tags: [],
+        link: "https://cardapioburger.vercel.app/",
+        isComingSoon: false
     },
     {
         id: 8,
